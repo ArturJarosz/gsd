@@ -1,3 +1,5 @@
+ARG port=8080
+
 # Base image
 FROM python:alpine
 
@@ -10,7 +12,8 @@ WORKDIR /app
 # Install dependencies
 RUN pip install -r requirements.txt
 
-EXPOSE 8080
+RUN echo "exposing port"
+EXPOSE $port
 
 # Command to run when container starts
 ENTRYPOINT ["python", "app/app.py"]
